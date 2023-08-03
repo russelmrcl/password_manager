@@ -5,7 +5,7 @@ public class ManagerUtil {
 
     private static Scanner scanner = new Scanner(System.in);
     private static EVL<String> newData = new EVL<>();
-    //Choose your own file path!!
+    //Choose your own file path!
     private static String filePath = "";
     private static boolean usedView = true;
 

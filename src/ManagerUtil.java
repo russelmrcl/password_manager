@@ -6,7 +6,7 @@ public class ManagerUtil {
     private static Scanner scanner = new Scanner(System.in);
     private static EVL<String> newData = new EVL<>();
     // Choose your own file path!
-    private static String filePath = "";
+    private static String filePath = "/Users/russelmarcelo/Documents/Home/Privat/passwords.txt";
     private static boolean usedView = true;
 
     public static void addPassword(EVL<Account> list) {
@@ -24,6 +24,8 @@ public class ManagerUtil {
                     String password = scanner.nextLine();
                     // Create a new Account object and add it to the list
                     list.push(new Account(platform, username, password));
+                    System.out.println("Password successfully added!");
+                    System.out.println();
                 }
                 break;
             }

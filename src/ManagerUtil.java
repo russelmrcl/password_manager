@@ -6,7 +6,7 @@ public class ManagerUtil {
     private static Scanner scanner = new Scanner(System.in);
     private static EVL<String> newData = new EVL<>();
     // Choose your own file path!
-    private static String filePath = "/Users/russelmarcelo/Documents/Home/Privat/passwords.txt";
+    private static String filePath = "";
     private static boolean usedView = true;
 
     public static void addPassword(EVL<Account> list) {

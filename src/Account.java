@@ -1,21 +1,21 @@
 public class Account {
 
-    private String website;
+    private String platform;
     private String username;
     private String password;
 
-    public Account(String website, String username, String password) {
-        this.website = website;
+    public Account(String platform, String username, String password) {
+        this.platform = platform;
         this.username = username;
         this.password = password;
     }
 
-    public Account(String website) {
-        this.website = website;
+    public Account(String platform) {
+        this.platform = platform;
     }
 
     public String getWebsite() {
-        return website;
+        return platform;
     }
 
     public String getUsername() {
@@ -24,6 +24,6 @@ public class Account {
 
     @Override
     public String toString() {
-        return website + " = [" + "username: " + username + ", " + "password: " + password + "]";
+        return platform + " = [" + "username: " + username + ", " + "password: " + password + "]";
     }
 }

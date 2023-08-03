@@ -6,22 +6,22 @@ public class ManagerUtil {
     private static Scanner scanner = new Scanner(System.in);
     private static EVL<String> newData = new EVL<>();
     //Choose your own file path!!
-    private static String filePath = "";
+    private static String filePath = "/Users/russelmarcelo/Documents/Home/Privat/password.txt";
     private static boolean usedView = true;
 
-    public static void addAccount(EVL<Account> list) {
+    public static void addPassword(EVL<Account> list) {
         try {
             while (true) {
-                System.out.println("(a)dd new Password or (e)xit:");
-                String answer = scanner.nextLine();
+                System.out.println("[A]dd new password or [E]xit:");
+                String answer = scanner.nextLine().toLowerCase();
                 if (answer.equalsIgnoreCase("a")) {
-                    System.out.println("Website:");
-                    String website = scanner.nextLine();
+                    System.out.println("Platform:");
+                    String platform = scanner.nextLine();
                     System.out.println("Username:");
                     String username = scanner.nextLine();
                     System.out.println("Password:");
                     String password = scanner.nextLine();
-                    list.push(new Account(website, username, password));
+                    list.push(new Account(platform, username, password));
                 }
                 break;
             }
@@ -41,29 +41,29 @@ public class ManagerUtil {
         }
     }
 
-    public static void deleteAccount(EVL<Account> list) {
+    public static void deletePassword(EVL<Account> list) {
         if (usedView) {
             passwordReader(list);
             usedView = false;
         }
         try {
             while (true) {
-                System.out.println("(d)elete Account or (e)xit:");
+                System.out.println("[D]elete password or [E]xit:");
                 String answer = scanner.nextLine();
                 if (answer.equalsIgnoreCase("d")) {
-                    System.out.println("Enter the website to delete the account:");
-                    String websiteDelete = scanner.nextLine();
+                    System.out.println("Enter the platform to delete the password: ");
+                    String platformDelete = scanner.nextLine();
                     boolean accountExists = false;
                     for (String s : newData) {
-                        if (s.contains(websiteDelete)) {
+                        if (s.contains(platformDelete)) {
                             newData.searchAndDelete(s);
-                            System.out.println("Account successfully deleted!");
+                            System.out.println("Password successfully deleted!");
                             accountExists = true;
                             break;
                         }
                     }
                     if (!accountExists) {
-                        System.out.println("Account doesn't exist");
+                        System.out.println("Password doesn't exist");
                     }
                 }
                 break;
@@ -80,27 +80,28 @@ public class ManagerUtil {
         }
     }
 
-    public static void search(EVL<Account> list) {
+    public static void searchPasswords(EVL<Account> list) {
         if (usedView) {
             passwordReader(list);
             usedView = false;
         }
         while (true) {
-            System.out.println("(s)earch Account or (e)xit:");
+            System.out.println("[S]earch password or [E]xit:");
             String answer = scanner.nextLine();
             if (answer.equalsIgnoreCase("s")) {
-                System.out.println("Enter the website to search the account:");
-                String websiteSearch = scanner.nextLine();
+                System.out.println("Enter the platform to search the password:");
+                String platformSearch = scanner.nextLine();
                 boolean accountExists = false;
                 for (String s : newData) {
-                    if (s.contains(websiteSearch)) {
+                    if (s.contains(platformSearch)) {
                         System.out.println(newData.search(s));
+                        System.out.println();
                         accountExists = true;
                         break;
                     }
                 }
                 if (!accountExists) {
-                    System.out.println("Account doesn't exist");
+                    System.out.println("password doesn't exist");
                 }
             }
             break;
@@ -115,6 +116,7 @@ public class ManagerUtil {
         for (String s : newData) {
             System.out.println(s);
         }
+        System.out.println();
     }
 
     private static void passwordReader(EVL<Account> list) {
